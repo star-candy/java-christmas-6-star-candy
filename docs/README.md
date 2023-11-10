@@ -124,8 +124,8 @@
 
 
 ### constatns package
-- StringConstants class
-- IntConstants class
+- [0] string 상수 Enum으로 관리 - Description class
+- Menu class
 
 ### exception packagae
 - InputValidator class
