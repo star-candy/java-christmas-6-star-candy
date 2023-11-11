@@ -40,8 +40,14 @@ public class OutputView {
         System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
     }
 
-    public void totalDiscountMoney(int totalDiscountMoney) {
+    public void totalDiscountPayment(int totalDiscountPayment) {
         System.out.println("<총혜택 금액>");
-        System.out.println(totalDiscountMoney + "원");
+        System.out.println(totalDiscountPayment + "원");
+    }
+
+    public void totalPayment(int preDiscountPayment, int totalDiscountPayment) {
+        System.out.println("<할인 후 예상 결제 금액>");
+        int totalPayment = preDiscountPayment - totalDiscountPayment;
+        System.out.println(totalPayment + "원");
     }
 }
