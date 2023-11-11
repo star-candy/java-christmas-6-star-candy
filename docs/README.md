@@ -118,6 +118,7 @@
 - [0] 할인 전 총 주문 금액 출력 기능 -prediscountpayment
 - [0] 증정 상품 갯수를 출력하는 기능 - giftcount
 - [0] 할인 내역 출력 기능 - discountdetails
+- [0] 총 할인 금액 출력 기능 - totaldiscountmoney
  
 - inputView class
 

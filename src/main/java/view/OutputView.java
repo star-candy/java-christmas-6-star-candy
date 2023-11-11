@@ -39,4 +39,9 @@ public class OutputView {
     public void giftReward(int giftCount) {
         System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
     }
+
+    public void totalDiscountMoney(int totalDiscountMoney) {
+        System.out.println("<총혜택 금액>");
+        System.out.println(totalDiscountMoney + "원");
+    }
 }
