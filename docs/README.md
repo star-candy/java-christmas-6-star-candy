@@ -117,6 +117,7 @@
 - [0] 주문 메뉴 출력 기능 - printOrder
 - [0] 할인 전 총 주문 금액 출력 기능 -prediscountpayment
 - [0] 증정 상품 갯수를 출력하는 기능 - giftcount
+- [0] 할인 내역 출력 기능 - discountdetails
  
 - inputView class
 
@@ -140,7 +141,7 @@
 - 방문 날짜 저장 class
 - 할인 전 총 주문 금액 class
 - 증정 메뉴 개수 class
-- 혜택 내역 class
+- [0] 혜택 내역 저장 orderMenu class
 - 총 혜택 금액 class
 - 이벤트 배지 class
 
