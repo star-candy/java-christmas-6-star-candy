@@ -114,6 +114,7 @@
 - outputView class
 - [0] 주문 시작 구문 출력 기능 - startNotify 
 - [0] 주문 종료 구문 출력 기능 - endNotify
+- [0] 주문 메뉴 출력 기능 - printOrder
  
 - inputView class
 
@@ -133,7 +134,7 @@
 - InputValidator class
   
 ### dto package
-- 주문 메뉴 저장 class
+- [0] 주문 메뉴 저장 OrderMenu class
 - 방문 날짜 저장 class
 - 할인 전 총 주문 금액 class
 - 증정 메뉴 개수 class
