@@ -147,7 +147,7 @@
 - [0] 할인 전 총 주문 금액 prediscountpayment class
 - [0] 증정 메뉴 개수 giftreward class
 - [0] 혜택 내역 저장 orderMenu class
-- 총 혜택 금액 class
+- [0] 총 혜택 금액 totaldiscountmoney class
 - [0] 이벤트 배지 저장 eventbadge class
 
 ### controller package 프로젝트 진행
