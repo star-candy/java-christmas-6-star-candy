@@ -143,8 +143,8 @@
   
 ### dto package
 - [0] 주문 메뉴 저장 OrderMenu class
-- 방문 날짜 저장 class
-- 할인 전 총 주문 금액 class
+- [ ] 방문 날짜 저장 reservedDate class
+- [0] 할인 전 총 주문 금액 prediscountpayment class
 - [0] 증정 메뉴 개수 giftreward class
 - [0] 혜택 내역 저장 orderMenu class
 - 총 혜택 금액 class
