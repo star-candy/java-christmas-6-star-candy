@@ -128,7 +128,8 @@
 
 ### model package
 - ModelManager class
-- InputTransformer class
+- [0] string input을 int로 변형 및 검증 InputDateTransformer class
+- InputMenuTransformer class
 - PreDiscountPaymentCalculator class
 - GiftRewardDeterminer
 - DiscountCalculator
@@ -139,8 +140,9 @@
 - [0] 메뉴명과 가격을 Enum으로 관리하는 기능 Menu class
 
 ### exception packagae
-- InputValidator class
-  
+- [0] input 날짜에 대한 검증 InputValidator class
+- [ ] input 메뉴에 대한 검증 InputValidator class
+
 ### dto package
 - [0] 주문 메뉴 저장 OrderMenu class
 - [0] 방문 날짜 저장 reservedDate class
