@@ -125,7 +125,7 @@
 
 ### constatns package
 - [0] string 상수 Enum으로 관리 - Description class
-- Menu class
+- [0] 메뉴명과 가격을 Enum으로 관리하는 기능 Menu class
 
 ### exception packagae
 - InputValidator class

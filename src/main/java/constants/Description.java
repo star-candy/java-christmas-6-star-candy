@@ -8,6 +8,9 @@ public enum Description {
     ORDER_MENU_DETAIL("%s %d개"),
     DISCOUNT_DETAIL("%s: %d원"),
     GIFT_DETAIL("샴페인 %d개"),
+    MAIN_MENU("티본스테이크, 바비큐립, 해산물파스타, 크리스마스파스타"),
+    DESSERT("초코케이크, 아이스크림"),
+    DRINK("제로콜라, 레드와인, 샴페인"),
     ERROR_DATE("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."),
     ERROR_NO_MENU("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."),
     ERROR_MENU_VALUE("[ERROR] 유효하지 않은 값 입니다. 다시 입력해 주세요."),
@@ -15,6 +18,7 @@ public enum Description {
     ERROR_MENU_DUPLICATE("[ERROR] 중복된 주문이 있습니다. 다시 입력해 주세요."),
     ERROR_ONLY_DRINK("[ERROR] 음료만 주문할 수 없습니다. 다시 입력해 주세요."),
     ERROR_MENU_FULL("[ERROR] 20개까지 주문할 수 있습니다. 다시 입력해 주세요."),
+
     BADGE_3RD("별"),
     BADGE_2ND("트리"),
     BADGE_1ST("산타");
