@@ -112,6 +112,7 @@
 
 ### view package
 - outputView class
+- [0] 주문 시작 구문 출력 기능 - startNotify 
  
 - inputView class
 
