@@ -123,6 +123,7 @@
 - [0] 12월 이벤트 배지 출력 기능 - eventbadge
  
 - inputView class
+- [0] 방문 예상 날짜 입력 기능 - reservedDate
 
 ### model package
 - ModelManager class
