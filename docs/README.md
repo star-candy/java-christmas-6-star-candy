@@ -124,6 +124,7 @@
  
 - inputView class
 - [0] 방문 예상 날짜 입력 기능 - reservedDate
+- [0] 메뉴 입력 기능 - orderMenu
 
 ### model package
 - ModelManager class

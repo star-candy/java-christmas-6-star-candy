@@ -10,4 +10,11 @@ public class InputView {
         System.out.println(dateInput);
         return dateInput;
     }
+
+    public String orderMenu() {
+        System.out.println(Description.ORDER_MENU_NOTIFY);
+        String dateInput = Console.readLine();
+        System.out.println(dateInput);
+        return dateInput;
+    }
 }
