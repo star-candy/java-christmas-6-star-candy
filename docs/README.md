@@ -116,6 +116,7 @@
 - [0] 주문 종료 구문 출력 기능 - endNotify
 - [0] 주문 메뉴 출력 기능 - printOrder
 - [0] 할인 전 총 주문 금액 출력 기능 -prediscountpayment
+- [0] 증정 상품 갯수를 출력하는 기능 - giftcount
  
 - inputView class
 

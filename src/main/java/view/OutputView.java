@@ -27,4 +27,7 @@ public class OutputView {
         System.out.println(payment + "원");
     }
 
+    public void giftReward(int giftCount) {
+        System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
+    }
 }
