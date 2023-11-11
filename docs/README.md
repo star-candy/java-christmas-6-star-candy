@@ -119,7 +119,8 @@
 - [0] 증정 상품 갯수를 출력하는 기능 - giftcount
 - [0] 할인 내역 출력 기능 - discountdetails
 - [0] 총 할인 금액 출력 기능 - totaldiscountmoney
-- [0] 할인 후 예상 결제 금액 출력 기능 - tot
+- [0] 할인 후 예상 결제 금액 출력 기능 - totalpayment
+- [0] 12월 이벤트 배지 출력 기능 - eventbadge
  
 - inputView class
 

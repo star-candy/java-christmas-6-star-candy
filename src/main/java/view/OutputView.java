@@ -50,4 +50,9 @@ public class OutputView {
         int totalPayment = preDiscountPayment - totalDiscountPayment;
         System.out.println(totalPayment + "원");
     }
+
+    public void eventBadge(String eventBadge) {
+        System.out.println("<12월 이벤트 배지>");
+        System.out.println(eventBadge);
+    }
 }
