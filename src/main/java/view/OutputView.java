@@ -21,4 +21,10 @@ public class OutputView {
             System.out.printf(Description.ORDER_MENU_DETAIL.getMessage(), item.menuName(), item.quantity());
         }
     }
+
+    public void preDiscountPayment(int payment) {
+        System.out.println("<할인 전 총주문 금액");
+        System.out.println(payment + "원");
+    }
+
 }
