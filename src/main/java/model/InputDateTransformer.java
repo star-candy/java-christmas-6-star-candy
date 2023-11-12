@@ -1,4 +1,5 @@
 package model;
+
 import exception.InputValidator;
 import DTO.ReservedDate;
 
@@ -12,7 +13,7 @@ public class InputDateTransformer {
         inputDateTransform();
     }
 
-    public void inputDateTransform(){
+    public void inputDateTransform() {
         final int validateDate = Integer.parseInt(inputDate);
         inputValidator.dateValidate(validateDate);
         reservedDate = new ReservedDate(validateDate);

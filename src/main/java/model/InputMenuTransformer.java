@@ -1,14 +1,14 @@
 package model;
 
 import DTO.OrderMenu;
-import DTO.OrderMenu.OrderItem;
+import exception.InputValidator;
 import java.util.ArrayList;
 import java.util.List;
-import exception.InputValidator;
 
 public class InputMenuTransformer {
     private final String inputMenu;
-    private final List<OrderItem> orderItems = new ArrayList<>();
+    private final List<String> menuName = new ArrayList<>();
+    private final List<Integer> menuQuantity = new ArrayList<>();
     OrderMenu orderMenu;
     InputValidator inputValidator = new InputValidator();
 
@@ -23,12 +23,12 @@ public class InputMenuTransformer {
         for (String menuBundle : menuBundles) {
             String[] menuParts = menuBundle.split("-");
             if (menuParts.length == 2) {
-                String menuName = menuParts[0];
-                int menuQuantity = Integer.parseInt(menuParts[1]);
-                orderItems.add(new OrderItem(menuName, menuQuantity));
+                menuName.add(menuParts[0]);
+                menuQuantity.add(Integer.parseInt(menuParts[1]));
             }
         }
-        inputValidator.menuValidate(orderItems);
-        orderMenu = new OrderMenu(orderItems);
+
+        inputValidator.menuValidate(menuName, menuQuantity);
+        orderMenu = new OrderMenu(menuName, menuQuantity);
     }
 }

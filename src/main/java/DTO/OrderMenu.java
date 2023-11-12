@@ -1,19 +1,22 @@
 package DTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderMenu {
-    private final List<OrderItem> orderItems; //record에서 list로 제공한 항목 저장
+    private final List<String> menuName;
+    private final List<Integer> menuQuantity;
 
-    public OrderMenu(List<OrderItem> orderItems) {
-        this.orderItems = orderItems; //final 키워드로 인해 생성자에서 초기화 후 값 변경 x
+    public OrderMenu(List<String> menuName, List<Integer> menuQuantity) {
+        this.menuName = menuName;
+        this.menuQuantity = menuQuantity;
     }
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
+    public List<String> getMenuName() {
+        return menuName;
     }
 
-    public record OrderItem(String menuName, int quantity) {
+    public List<Integer> getMenuQuantity() {
+        return menuQuantity;
     }
+
 }
