@@ -3,20 +3,20 @@ package DTO;
 import java.util.List;
 
 public class OrderMenu {
-    private final List<String> menuName;
-    private final List<Integer> menuQuantity;
+    private static List<String> menuName;
+    private static List<Integer> menuQuantity;
 
-    public OrderMenu(List<String> menuName, List<Integer> menuQuantity) {
-        this.menuName = menuName;
-        this.menuQuantity = menuQuantity;
+    // 정적 메서드로 생성자 대체
+    public static void initializeOrderMenu(List<String> names, List<Integer> quantities) {
+        menuName = names;
+        menuQuantity = quantities;
     }
 
-    public List<String> getMenuName() {
+    public static List<String> getMenuName() {
         return menuName;
     }
 
-    public List<Integer> getMenuQuantity() {
+    public static List<Integer> getMenuQuantity() {
         return menuQuantity;
     }
-
 }

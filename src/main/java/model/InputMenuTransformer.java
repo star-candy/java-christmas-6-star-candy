@@ -9,7 +9,6 @@ public class InputMenuTransformer {
     private final String inputMenu;
     private final List<String> menuName = new ArrayList<>();
     private final List<Integer> menuQuantity = new ArrayList<>();
-    OrderMenu orderMenu;
     InputValidator inputValidator = new InputValidator();
 
 
@@ -29,6 +28,6 @@ public class InputMenuTransformer {
         }
 
         inputValidator.menuValidate(menuName, menuQuantity);
-        orderMenu = new OrderMenu(menuName, menuQuantity);
+        OrderMenu.initializeOrderMenu(menuName, menuQuantity);
     }
 }
