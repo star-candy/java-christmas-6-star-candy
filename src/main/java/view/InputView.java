@@ -12,7 +12,7 @@ public class InputView {
     }
 
     public String orderMenu() {
-        System.out.println(Description.ORDER_MENU_NOTIFY);
+        System.out.println(Description.ORDER_MENU_NOTIFY.getMessage());
         String dateInput = Console.readLine();
         System.out.println(dateInput);
         return dateInput;

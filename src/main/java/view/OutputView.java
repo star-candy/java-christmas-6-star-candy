@@ -5,21 +5,6 @@ import java.util.List;
 
 
 public class OutputView {
-    public void discountDetails(List<String> discountName, List<Integer> discountQuantity) {
-        System.out.println("<혜택 내역>");
-
-        for (int index = 0; index < discountName.size(); index++) {
-            System.out.printf(Description.DISCOUNT_DETAIL.getMessage(), discountName.get(index),
-                    discountQuantity.get(index));
-        }
-    }
-
-    public void printOrder(List<String> menuName, List<Integer> menuQuantity) {
-        System.out.println("<주문 메뉴>");
-        for (int index = 0; index < menuName.size(); index++) {
-            System.out.printf(Description.ORDER_MENU_DETAIL.getMessage(), menuName.get(index), menuQuantity.get(index));
-        }
-    }
 
     public void startNotify() {
         System.out.println(Description.ORDER_START.getMessage());
@@ -29,13 +14,30 @@ public class OutputView {
         System.out.println(Description.ORDER_END.getMessage());
     }
 
+    public void printOrder(List<String> menuName, List<Integer> menuQuantity) {
+        System.out.println("<주문 메뉴>");
+        for (int index = 0; index < menuName.size(); index++) {
+            System.out.printf(Description.ORDER_MENU_DETAIL.getMessage(), menuName.get(index), menuQuantity.get(index));
+        }
+    }
+
     public void preDiscountPayment(int payment) {
-        System.out.println("<할인 전 총주문 금액");
+        System.out.println("<할인 전 총주문 금액>");
         System.out.println(payment + "원");
     }
 
     public void giftReward(int giftCount) {
+        System.out.println("<증정 메뉴>");
         System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
+    }
+
+    public void discountDetails(List<String> discountName, List<Integer> discountQuantity) {
+        System.out.println("<혜택 내역>");
+
+        for (int index = 0; index < discountName.size(); index++) {
+            System.out.printf(Description.DISCOUNT_DETAIL.getMessage(), discountName.get(index),
+                    discountQuantity.get(index));
+        }
     }
 
     public void totalDiscountPayment(int totalDiscountPayment) {
@@ -43,9 +45,13 @@ public class OutputView {
         System.out.println(totalDiscountPayment + "원");
     }
 
-    public void totalPayment(int preDiscountPayment, int totalDiscountPayment) {//증정 상품 있을 시 totalPayment +25000!!!!!
+    public void totalPayment(int preDiscountPayment, int totalDiscountPayment, int giftCount) {
         System.out.println("<할인 후 예상 결제 금액>");
         int totalPayment = preDiscountPayment - totalDiscountPayment;
+        if(giftCount == 1) {
+            totalPayment -= 25000;
+        }
+
         System.out.println(totalPayment + "원");
     }
 

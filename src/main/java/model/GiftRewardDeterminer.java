@@ -6,7 +6,7 @@ public class GiftRewardDeterminer {
     private final int preDiscountPayment;
     GiftReward giftReward;
 
-    GiftRewardDeterminer(int preDiscountPayment) {
+    public GiftRewardDeterminer(int preDiscountPayment) {
         this.preDiscountPayment = preDiscountPayment;
         giftRewardDetermine();
     }
