@@ -131,7 +131,7 @@
 - [0] string input을 int로 변형 및 검증 InputDateTransformer class
 - [0] String input을 list로 변형 및 검증 InputMenuTransformer class
 - [0] 할인 전 총 주문 금액을 구하는 기능 PreDiscountPaymentCalculator class
-- GiftRewardDeterminer
+- [0] 할인 전 총 주문 금액에 따른 증정 상품 구하는 기능 GiftRewardDeterminer
 - DiscountCalculator
 
 
