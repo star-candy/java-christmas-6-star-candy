@@ -13,7 +13,7 @@ public class GiftRewardDeterminer {
 
     private void giftRewardDetermine() {
         if(preDiscountPayment >= 120000) {
-            giftReward = new GiftReward(1);
+            GiftReward.setGiftReward(1);
         }
     }
 }

@@ -1,13 +1,13 @@
 package DTO;
 
 public class TotalDiscountMoney {
-    private final int totalDiscountMoney;
+    private static int totalDiscountMoney;
 
-    public TotalDiscountMoney(int totalDiscountMoney) {
-        this.totalDiscountMoney = totalDiscountMoney;
+    public static void setTotalDiscountMoney(int value) {
+        totalDiscountMoney = value;
     }
 
-    public int getTotalDiscountMoney() {
+    public static int getTotalDiscountMoney() {
         return totalDiscountMoney;
     }
 }

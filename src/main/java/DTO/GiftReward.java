@@ -1,14 +1,13 @@
 package DTO;
 
 public class GiftReward {
-    private final int giftReward;
+    private static int giftReward;
 
-    public GiftReward(int giftReward) {
-        this.giftReward = giftReward;
+    public static void setGiftReward(int value) {
+        giftReward = value;
     }
 
-    public int getGiftReward() {
+    public static int getGiftReward() {
         return giftReward;
     }
 }
-
