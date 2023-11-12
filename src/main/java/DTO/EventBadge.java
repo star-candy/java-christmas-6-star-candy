@@ -1,13 +1,13 @@
 package DTO;
 
 public class EventBadge {
-    private final String eventBadge;
+    private static String eventBadge;
 
-    public EventBadge(String eventBadge) {
-        this.eventBadge = eventBadge;
+    public static void setEventBadge(String badge) {
+        eventBadge = badge;
     }
 
-    public String getEventBadge() {
+    public static String getEventBadge() {
         return eventBadge;
     }
 }

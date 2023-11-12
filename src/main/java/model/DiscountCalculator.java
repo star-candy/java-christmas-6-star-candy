@@ -14,7 +14,7 @@ public class DiscountCalculator {
     private final int giftReward;
     private final List<String> menuName;
     private final List<Integer> menuQuantity;
-    EventBadge eventBadge;
+
 
     TotalDiscountMoney totalDiscountMoney;
     private int totalDiscount;
@@ -110,7 +110,7 @@ public class DiscountCalculator {
             totalDiscount += badgeDiscount;
         }
 
-        eventBadge = new EventBadge(badge);
+        EventBadge.setEventBadge(badge);
         return badgeDiscount;
     }
 }
