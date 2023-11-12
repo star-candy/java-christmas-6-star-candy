@@ -130,7 +130,7 @@
 - ModelManager class
 - [0] string input을 int로 변형 및 검증 InputDateTransformer class
 - [0] String input을 list로 변형 및 검증 InputMenuTransformer class
-- PreDiscountPaymentCalculator class
+- [0] 할인 전 총 주문 금액을 구하는 기능 PreDiscountPaymentCalculator class
 - GiftRewardDeterminer
 - DiscountCalculator
 
