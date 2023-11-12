@@ -1,13 +1,13 @@
 package DTO;
 
 public class PreDiscountPayment {
-    private final int preDiscountPayment;
+    private static int preDiscountPayment;
 
-    public PreDiscountPayment(int preDiscountPayment) {
-        this.preDiscountPayment = preDiscountPayment;
+    public static void initializePreDiscountPayment(int payment) {
+        preDiscountPayment = payment;
     }
 
-    public int getPreDiscountPayment() {
+    public static int getPreDiscountPayment() {
         return preDiscountPayment;
     }
 }

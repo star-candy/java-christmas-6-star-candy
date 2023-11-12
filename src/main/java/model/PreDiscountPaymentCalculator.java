@@ -9,7 +9,6 @@ import java.util.List;
 public class PreDiscountPaymentCalculator {
     private final List<String> menuName;
     private final List<Integer> menuQuantity;
-    PreDiscountPayment preDiscountPayment;
 
 
     public PreDiscountPaymentCalculator(List<String> menuName, List<Integer> menuQuantity) {
@@ -36,7 +35,7 @@ public class PreDiscountPaymentCalculator {
                 throw new IllegalArgumentException(Description.ERROR_NO_MENU.getMessage());
             }
         }
-        preDiscountPayment = new PreDiscountPayment(totalPayment);
+        PreDiscountPayment.initializePreDiscountPayment(totalPayment);
     }
 
     private Menu findMenuByName(String menuName) {
