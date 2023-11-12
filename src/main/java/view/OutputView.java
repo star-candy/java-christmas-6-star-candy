@@ -1,8 +1,8 @@
 package view;
 
 import constants.Description;
-import java.util.List;
 
+import java.util.List;
 
 public class OutputView {
 
@@ -28,12 +28,15 @@ public class OutputView {
 
     public void giftReward(int giftCount) {
         System.out.println("<증정 메뉴>");
-        System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
+        if (giftCount > 0) {
+            System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
+        } else {
+            System.out.println("없음");
+        }
     }
 
     public void discountDetails(List<String> discountName, List<Integer> discountQuantity) {
         System.out.println("<혜택 내역>");
-
         for (int index = 0; index < discountName.size(); index++) {
             System.out.printf(Description.DISCOUNT_DETAIL.getMessage(), discountName.get(index),
                     discountQuantity.get(index));
@@ -48,10 +51,9 @@ public class OutputView {
     public void totalPayment(int preDiscountPayment, int totalDiscountPayment, int giftCount) {
         System.out.println("<할인 후 예상 결제 금액>");
         int totalPayment = preDiscountPayment - totalDiscountPayment;
-        if(giftCount == 1) {
+        if (giftCount == 1) {
             totalPayment -= 25000;
         }
-
         System.out.println(totalPayment + "원");
     }
 
