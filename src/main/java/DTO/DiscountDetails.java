@@ -3,20 +3,19 @@ package DTO;
 import java.util.List;
 
 public class DiscountDetails {
-    private final List<String> discountName;
-    private final List<Integer> discountQuantity;
+    private static List<String> discountName;
+    private static List<Integer> discountQuantity;
 
-    public DiscountDetails(List<String> discountName, List<Integer> discountQuantity) {
-        this.discountName = discountName;
-        this.discountQuantity = discountQuantity;
+    public static void initializeDiscountDetails(List<String> names, List<Integer> quantities) {
+        discountName = names;
+        discountQuantity = quantities;
     }
 
-    public List<String> getDiscountName() {
+    public static List<String> getDiscountName() {
         return discountName;
     }
 
-    public List<Integer> getDiscountQuantity() {
+    public static List<Integer> getDiscountQuantity() {
         return discountQuantity;
     }
-
 }

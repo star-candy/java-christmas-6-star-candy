@@ -15,7 +15,7 @@ public class DiscountCalculator {
     private final List<String> menuName;
     private final List<Integer> menuQuantity;
     EventBadge eventBadge;
-    DiscountDetails discountDetails;
+
     TotalDiscountMoney totalDiscountMoney;
     private int totalDiscount;
 
@@ -32,7 +32,7 @@ public class DiscountCalculator {
         discountPayment.add(weekDayEndValidate());
         discountPayment.add(giftRewardDiscount());
         discountPayment.add(eventBadgeDiscount());
-        discountDetails = new DiscountDetails(discountName, discountPayment);
+        DiscountDetails.initializeDiscountDetails(discountName, discountPayment);
         totalDiscountMoney = new TotalDiscountMoney(totalDiscount);
 
     }
