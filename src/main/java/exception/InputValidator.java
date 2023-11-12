@@ -30,7 +30,7 @@ public class InputValidator {
     }
 
     private void checkOnlyDrinkMenu(List<String> menuName) {
-        List<String> drink = List.of(Description.DRINK.getMessage());
+        List<String> drink = List.of("제로콜라", "레드와인", "샴페인");
         if (menuName.size() <= 3 && drink.containsAll(menuName)) {
 
             throw new IllegalArgumentException(Description.ERROR_ONLY_DRINK.getMessage());

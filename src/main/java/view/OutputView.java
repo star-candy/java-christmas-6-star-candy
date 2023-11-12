@@ -43,7 +43,7 @@ public class OutputView {
         System.out.println(totalDiscountPayment + "원");
     }
 
-    public void totalPayment(int preDiscountPayment, int totalDiscountPayment) {
+    public void totalPayment(int preDiscountPayment, int totalDiscountPayment) {//증정 상품 있을 시 totalPayment +25000!!!!!
         System.out.println("<할인 후 예상 결제 금액>");
         int totalPayment = preDiscountPayment - totalDiscountPayment;
         System.out.println(totalPayment + "원");

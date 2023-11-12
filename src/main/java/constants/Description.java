@@ -18,7 +18,7 @@ public enum Description {
     ERROR_MENU_DUPLICATE("[ERROR] 중복된 주문이 있습니다. 다시 입력해 주세요."),
     ERROR_ONLY_DRINK("[ERROR] 음료만 주문할 수 없습니다. 다시 입력해 주세요."),
     ERROR_MENU_FULL("[ERROR] 20개까지 주문할 수 있습니다. 다시 입력해 주세요."),
-
+    DISCOUNT_NAMES("크리스마스 디데이 할인, 평일 할인, 특별 할인, 증정 이벤트"),
     BADGE_3RD("별"),
     BADGE_2ND("트리"),
     BADGE_1ST("산타");
