@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class OutputView {
-    public static void discountDetails(List<String> discountName, List<Integer> discountQuantity) {
+    public void discountDetails(List<String> discountName, List<Integer> discountQuantity) {
         System.out.println("<혜택 내역>");
 
         for (int index = 0; index < discountName.size(); index++) {

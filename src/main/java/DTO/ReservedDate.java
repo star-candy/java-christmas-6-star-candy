@@ -1,13 +1,14 @@
 package DTO;
 
 public class ReservedDate {
-    private final int reservedDate;
+    private static int reservedDate;
 
-    public ReservedDate(int reservedDate) {
-        this.reservedDate = reservedDate;
+    // 정적 메서드로 생성자 대체
+    public static void initializeReservedDate(int date) {
+        reservedDate = date;
     }
 
-    public int getReservedDate() {
+    public static int getReservedDate() {
         return reservedDate;
     }
 }

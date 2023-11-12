@@ -16,7 +16,7 @@ public class InputDateTransformer {
     public void inputDateTransform() {
         final int validateDate = Integer.parseInt(inputDate);
         inputValidator.dateValidate(validateDate);
-        reservedDate = new ReservedDate(validateDate);
+        ReservedDate.initializeReservedDate(validateDate);
     }
 
 }
