@@ -31,7 +31,6 @@ public class DiscountCalculator {
         discountName.add("크리스마스 디데이 할인");
         int dDayStart = 1000;
         if (reservedDate > 25) {
-
             discountPayments.add(0);
         }
         for (int day = 1; day < reservedDate; day++) {
@@ -39,7 +38,6 @@ public class DiscountCalculator {
         }
         totalDiscount += dDayStart;
         discountPayments.add(dDayStart);
-        //return dDayStart;
     }
 
     public void weekDayEndValidate() {//int return 전에 totalDiscount에 값 추가하기
@@ -78,7 +76,6 @@ public class DiscountCalculator {
         }
         totalDiscount += discountPayment;
         discountPayments.add(discountPayment);
-        //return discountPayment;
     }
 
     public void eventBadgeDiscount() {
@@ -117,6 +114,7 @@ public class DiscountCalculator {
     public String getBadgeName() {
         return badgeName;
     }
+
     public int getTotalDiscount() {
         return totalDiscount;
     }
