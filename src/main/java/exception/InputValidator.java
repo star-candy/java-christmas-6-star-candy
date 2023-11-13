@@ -15,11 +15,13 @@ public class InputValidator {
         }
     }
 
-    public void menuValidate(List<String> menuName, List<Integer> menuQuantity) {
+    public void menuNameValidate(List<String> menuName) {
         checkDuplicateMenu(menuName);
         checkOnlyDrinkMenu(menuName);
-        checkMenuMax(menuQuantity);
+    }
 
+    public void menuQuantityValidate(List<Integer> menuQuantity) {
+        checkMenuMax(menuQuantity);
     }
 
 

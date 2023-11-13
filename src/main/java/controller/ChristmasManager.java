@@ -1,12 +1,7 @@
 package controller;
 
-import DTO.DiscountDetails;
-import DTO.EventBadge;
-import DTO.GiftReward;
-import DTO.OrderMenu;
-import DTO.PreDiscountPayment;
-import DTO.ReservedDate;
-import DTO.TotalDiscountMoney;
+import constants.Description;
+import java.util.List;
 import model.DiscountCalculator;
 import model.GiftRewardDeterminer;
 import model.InputDateTransformer;
@@ -19,6 +14,17 @@ public class ChristmasManager {
     private final OutputView outputView;
     private final InputView inputView;
 
+    private int inputDate;
+    private List<String> menuName;
+    private List<Integer> menuQuantity;
+    private int preDiscountPayment;
+    private int giftReward;
+
+    private List<String> discountName;
+    private List<Integer> discountPayments;
+    private int totalDiscount;
+    private String badgeName;
+
     public ChristmasManager(OutputView outputView, InputView inputView) {
         this.outputView = outputView;
         this.inputView = inputView;
@@ -28,10 +34,10 @@ public class ChristmasManager {
         notifyStartAndTransformInput();
         printOrder();
         calculatePreDiscountPayment();
-        if (PreDiscountPayment.getPreDiscountPayment() < 10000) {
+        if (preDiscountPayment < 10000) {
             noDiscountPrintResult();
         }
-        if (PreDiscountPayment.getPreDiscountPayment() >= 10000) {
+        if (preDiscountPayment >= 10000) {
             determineGiftReward();
             calculateDiscount();
             printResults();
@@ -40,40 +46,51 @@ public class ChristmasManager {
 
     private void notifyStartAndTransformInput() {
         outputView.startNotify();
-        InputDateTransformer inputDateTransformer = new InputDateTransformer(inputView.reservedDate());
+        try {
+            InputDateTransformer inputDateTransformer = new InputDateTransformer(inputView.reservedDate());
+            inputDate = inputDateTransformer.inputDateTransform();
+        } catch (IllegalArgumentException e) {
+            System.out.println(Description.ERROR_DATE.getMessage());
+        }
         InputMenuTransformer inputMenuTransformer = new InputMenuTransformer(inputView.orderMenu());
+        menuName = inputMenuTransformer.inputMenuNameValidate();
+        menuQuantity = inputMenuTransformer.inputMenuQuantityValidate();
         outputView.endNotify();
     }
 
     private void printOrder() {
-        outputView.printOrder(OrderMenu.getMenuName(), OrderMenu.getMenuQuantity());
+        outputView.printOrder(menuName, menuQuantity);
     }
 
     private void calculatePreDiscountPayment() {
-        PreDiscountPaymentCalculator preDiscountPaymentCalculator = new PreDiscountPaymentCalculator(
-                OrderMenu.getMenuName(), OrderMenu.getMenuQuantity());
-        outputView.preDiscountPayment(PreDiscountPayment.getPreDiscountPayment());
+        PreDiscountPaymentCalculator preDiscountPaymentCalculator = new PreDiscountPaymentCalculator(menuName, menuQuantity);
+        preDiscountPayment = preDiscountPaymentCalculator.preDiscountPaymentCalculate();
+        outputView.preDiscountPayment(preDiscountPayment);
     }
 
     private void determineGiftReward() {
-        GiftRewardDeterminer giftRewardDeterminer = new GiftRewardDeterminer(
-                PreDiscountPayment.getPreDiscountPayment());
-        outputView.giftReward(GiftReward.getGiftReward());
+        GiftRewardDeterminer giftRewardDeterminer = new GiftRewardDeterminer(preDiscountPayment);
+        giftReward = giftRewardDeterminer.giftRewardDetermine();
+        outputView.giftReward(giftReward);
     }
 
     private void calculateDiscount() {
-        DiscountCalculator discountCalculator = new DiscountCalculator(ReservedDate.getReservedDate(),
-                GiftReward.getGiftReward(), OrderMenu.getMenuName(), OrderMenu.getMenuQuantity());
-        outputView.discountDetails(DiscountDetails.getDiscountName(), DiscountDetails.getDiscountQuantity());
-        outputView.totalDiscountPayment(TotalDiscountMoney.getTotalDiscountMoney());
+        DiscountCalculator discountCalculator = new DiscountCalculator(inputDate, giftReward, menuName, menuQuantity);
+        discountName = discountCalculator.getDiscountName();
+        discountPayments = discountCalculator.getDiscountPayments();
+        badgeName = discountCalculator.getBadgeName();
+        totalDiscount = discountCalculator.getTotalDiscount();
+
+        outputView.discountDetails(discountName, discountPayments);
+        outputView.totalDiscountPayment(totalDiscount);
     }
 
     private void printResults() {
-        outputView.totalPayment(PreDiscountPayment.getPreDiscountPayment(),
-                TotalDiscountMoney.getTotalDiscountMoney(), GiftReward.getGiftReward());
-        outputView.eventBadge(EventBadge.getEventBadge());
+        outputView.totalPayment(preDiscountPayment, totalDiscount, giftReward);
+        outputView.eventBadge(badgeName);
     }
+
     private void noDiscountPrintResult() {
-        outputView.noDiscountPrint(PreDiscountPayment.getPreDiscountPayment());
+        outputView.noDiscountPrint(preDiscountPayment);
     }
 }

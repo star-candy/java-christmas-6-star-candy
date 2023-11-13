@@ -1,6 +1,5 @@
 package model;
 
-import DTO.OrderMenu;
 import exception.InputValidator;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,6 @@ public class InputMenuTransformer {
     public InputMenuTransformer(String inputMenu) {
         this.inputMenu = inputMenu;
         inputMenuTransform();
-        inputMenuValidate();
     }
 
     private void inputMenuTransform() {
@@ -33,8 +31,14 @@ public class InputMenuTransformer {
             menuQuantity.add(0);
         }
     }
-    private void inputMenuValidate() {
-        inputValidator.menuValidate(menuName, menuQuantity);
-        OrderMenu.initializeOrderMenu(menuName, menuQuantity);
+
+    public List<String> inputMenuNameValidate() {
+        inputValidator.menuNameValidate(menuName);
+        return menuName;
+    }
+
+    public List<Integer> inputMenuQuantityValidate() {
+        inputValidator.menuQuantityValidate(menuQuantity);
+        return menuQuantity;
     }
 }

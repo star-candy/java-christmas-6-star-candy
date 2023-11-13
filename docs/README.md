@@ -153,7 +153,7 @@
 - [0] 이벤트 배지 저장 eventbadge class
 
 ### controller package 프로젝트 진행
-- [0] Controller class
+- [0] Controller class  
 
 
 ### 3주차 피드백

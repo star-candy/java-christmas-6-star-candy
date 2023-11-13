@@ -1,7 +1,5 @@
 package model;
 
-
-import DTO.PreDiscountPayment;
 import constants.Description;
 import constants.Menu;
 import java.util.List;
@@ -14,10 +12,9 @@ public class PreDiscountPaymentCalculator {
     public PreDiscountPaymentCalculator(List<String> menuName, List<Integer> menuQuantity) {
         this.menuName = menuName;
         this.menuQuantity = menuQuantity;
-        preDiscountPaymentCalculate();
     }
 
-    private void preDiscountPaymentCalculate() {
+    public int preDiscountPaymentCalculate() {
         int totalPayment = 0;
 
         try {
@@ -40,7 +37,7 @@ public class PreDiscountPaymentCalculator {
             System.out.println(Description.ERROR_NO_MENU.getMessage());
         }
 
-        PreDiscountPayment.initializePreDiscountPayment(totalPayment);
+        return totalPayment;
     }
 
     private Menu findMenuByName(String menuName) {

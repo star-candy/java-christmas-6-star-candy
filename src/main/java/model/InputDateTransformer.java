@@ -2,7 +2,6 @@ package model;
 
 import constants.Description;
 import exception.InputValidator;
-import DTO.ReservedDate;
 
 public class InputDateTransformer {
     private final String inputDate;
@@ -10,17 +9,11 @@ public class InputDateTransformer {
 
     public InputDateTransformer(String inputDate) {
         this.inputDate = inputDate;
-        inputDateTransform();
     }
 
-    public void inputDateTransform() {
-        try {
-            final int validateDate = Integer.parseInt(inputDate);
-            inputValidator.dateValidate(validateDate);
-            ReservedDate.initializeReservedDate(validateDate);
-        } catch (IllegalArgumentException e) {
-            System.out.println(Description.ERROR_DATE.getMessage());
-
-        }
+    public int inputDateTransform() { //controller 사용시 Description.ERROR_DATE.getMessage()에 대한 try-catch 사용하기
+        final int validateDate = Integer.parseInt(inputDate);
+        inputValidator.dateValidate(validateDate);
+        return validateDate;
     }
 }
