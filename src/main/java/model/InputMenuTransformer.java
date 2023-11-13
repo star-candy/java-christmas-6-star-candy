@@ -15,18 +15,25 @@ public class InputMenuTransformer {
     public InputMenuTransformer(String inputMenu) {
         this.inputMenu = inputMenu;
         inputMenuTransform();
+        inputMenuValidate();
     }
 
-    public void inputMenuTransform() {
-        String[] menuBundles = inputMenu.split(",");
-        for (String menuBundle : menuBundles) {
-            String[] menuParts = menuBundle.split("-");
-            if (menuParts.length == 2) {
-                menuName.add(menuParts[0]);
-                menuQuantity.add(Integer.parseInt(menuParts[1]));
+    private void inputMenuTransform() {
+        try {
+            String[] menuBundles = inputMenu.split(",");
+            for (String menuBundle : menuBundles) {
+                String[] menuParts = menuBundle.split("-");
+                if (menuParts.length == 2) {
+                    menuName.add(menuParts[0]);
+                    menuQuantity.add(Integer.parseInt(menuParts[1]));
+                }
             }
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            menuQuantity.add(0);
         }
-
+    }
+    private void inputMenuValidate() {
         inputValidator.menuValidate(menuName, menuQuantity);
         OrderMenu.initializeOrderMenu(menuName, menuQuantity);
     }

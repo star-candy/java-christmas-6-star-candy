@@ -73,7 +73,6 @@ public class ChristmasManager {
                 TotalDiscountMoney.getTotalDiscountMoney(), GiftReward.getGiftReward());
         outputView.eventBadge(EventBadge.getEventBadge());
     }
-
     private void noDiscountPrintResult() {
         outputView.noDiscountPrint(PreDiscountPayment.getPreDiscountPayment());
     }

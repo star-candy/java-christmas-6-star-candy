@@ -19,11 +19,12 @@ public class OutputView {
         for (int index = 0; index < menuName.size(); index++) {
             System.out.printf(Description.ORDER_MENU_DETAIL.getMessage(), menuName.get(index), menuQuantity.get(index));
         }
+        System.out.println();
     }
 
     public void preDiscountPayment(int payment) {
         System.out.println("<할인 전 총주문 금액>");
-        System.out.println(payment + "원");
+        System.out.println(payment + "원\n");
     }
 
     public void giftReward(int giftCount) {
@@ -31,7 +32,7 @@ public class OutputView {
         if (giftCount > 0) {
             System.out.printf(Description.GIFT_DETAIL.getMessage(), giftCount);
         } else {
-            System.out.println("없음");
+            System.out.println("없음\n");
         }
     }
 
@@ -41,11 +42,12 @@ public class OutputView {
             System.out.printf(Description.DISCOUNT_DETAIL.getMessage(), discountName.get(index),
                     discountQuantity.get(index));
         }
+        System.out.println();
     }
 
     public void totalDiscountPayment(int totalDiscountPayment) {
         System.out.println("<총혜택 금액>");
-        System.out.println(totalDiscountPayment + "원");
+        System.out.println(totalDiscountPayment + "원\n");
     }
 
     public void totalPayment(int preDiscountPayment, int totalDiscountPayment, int giftCount) {
@@ -54,7 +56,7 @@ public class OutputView {
         if (giftCount == 1) {
             totalPayment -= 25000;
         }
-        System.out.println(totalPayment + "원");
+        System.out.println(totalPayment + "원\n");
     }
 
     public void eventBadge(String eventBadge) {

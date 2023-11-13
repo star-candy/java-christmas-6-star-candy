@@ -3,6 +3,7 @@ package exception;
 import constants.Description;
 import java.util.HashSet;
 import java.util.List;
+import org.junit.jupiter.params.ParameterizedTest;
 
 public class InputValidator {
     private static final int DATE_MAX = 31;
@@ -10,7 +11,7 @@ public class InputValidator {
 
     public void dateValidate(int date) {
         if (date > DATE_MAX || date < DATE_MIN) {
-            throw new IllegalArgumentException(Description.ERROR_DATE.getMessage());
+            throw new IllegalArgumentException();
         }
     }
 
@@ -24,19 +25,25 @@ public class InputValidator {
 
     private void checkDuplicateMenu(List<String> menuName) {
         HashSet<String> set = new HashSet<>(menuName);
-        if (set.size() < menuName.size()) {
-            throw new IllegalArgumentException(Description.ERROR_MENU_DUPLICATE.getMessage());
+        try {
+            if (set.size() < menuName.size()) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(Description.ERROR_MENU_DUPLICATE.getMessage());
         }
     }
 
     private void checkOnlyDrinkMenu(List<String> menuName) {
         List<String> drink = List.of("제로콜라", "레드와인", "샴페인");
-        if (menuName.size() <= 3 && drink.containsAll(menuName)) {
-
-            throw new IllegalArgumentException(Description.ERROR_ONLY_DRINK.getMessage());
+        try {
+            if (menuName.size() <= 3 && drink.containsAll(menuName)) {
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(Description.ERROR_ONLY_DRINK.getMessage());
         }
     }
-
 
     private void checkMenuMax(List<Integer> menuQuantity) {
         int quantity = 0;
