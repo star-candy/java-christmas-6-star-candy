@@ -1,10 +1,24 @@
 package model;
 
+import constants.Description;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class DiscountCalculator {
+    private final static int ZERO_COUNT = 0;
+    private final static int FIRST_INDEX = 0;
+    private final static int DAY_DISCOUNT_START = 1000;
+    private final static int BADGE_DISCOUNT = 1000;
+    private final static int DAY_DISCOUNT_FIRST_DAY = 25;
+    private final static int DAY_DISCOUNT_LAST_DAY = 25;
+    private final static int GIFT_PAYMENT = 25000;
+    private final static int WEEK_DISCOUNT = 2023;
+    private final static int THIRD_BADGE_POINT = 5000;
+    private final static int SECOND_BADGE_POINT = 10000;
+    private final static int FIRST_BADGE_POINT = 20000;
+    private final static Integer[] WEEKEND = {1, 2, 8, 9, 15, 16, 22, 23, 29, 30};
+
     private final List<String> discountName = new ArrayList<>();
     private final List<Integer> discountPayments = new ArrayList<>();
     private final int reservedDate;
@@ -29,11 +43,11 @@ public class DiscountCalculator {
 
     public void dDayDiscount() {//int return 전에 totalDiscount에 값 추가하기
         discountName.add("크리스마스 디데이 할인");
-        int dDayStart = 1000;
-        if (reservedDate > 25) {
-            discountPayments.add(0);
+        int dDayStart = DAY_DISCOUNT_START;
+        if (reservedDate > DAY_DISCOUNT_LAST_DAY) {
+            discountPayments.add(FIRST_INDEX);
         }
-        for (int day = 1; day < reservedDate; day++) {
+        for (int day = DAY_DISCOUNT_FIRST_DAY; day < reservedDate; day++) {
             dDayStart += 100;
         }
         totalDiscount += dDayStart;
@@ -41,14 +55,14 @@ public class DiscountCalculator {
     }
 
     public void weekDayEndValidate() {
-        final List<Integer> weekEnd = List.of(1, 2, 8, 9, 15, 16, 22, 23, 29, 30);
+        final List<Integer> weekEnd = Arrays.asList(WEEKEND);
         if (weekEnd.contains(reservedDate)) {
             discountName.add("주말 할인");
             weekDiscount(true);
         }
         if (!weekEnd.contains(reservedDate)) {
-        discountName.add("평일 할인");
-        weekDiscount(false);
+            discountName.add("평일 할인");
+            weekDiscount(false);
         }
     }
 
@@ -65,8 +79,8 @@ public class DiscountCalculator {
         int discountPayment = menuName.stream()
                 .filter(currentMenu -> finalDiscountMenu.stream().anyMatch(currentMenu::contains))
                 .mapToInt(menuName::indexOf)
-                .mapToObj(index -> menuQuantity.get(index) * 2023)
-                .reduce(0, Integer::sum);
+                .mapToObj(index -> menuQuantity.get(index) * WEEK_DISCOUNT)
+                .reduce(ZERO_COUNT, Integer::sum);
 
         totalDiscount += discountPayment;
         discountPayments.add(discountPayment);
@@ -74,9 +88,9 @@ public class DiscountCalculator {
 
     public void giftRewardDiscount() {
         discountName.add("증정 이벤트");
-        int discountPayment = 0;
-        if (giftReward > 0) {
-            discountPayment = 25000;
+        int discountPayment = ZERO_COUNT;
+        if (giftReward > ZERO_COUNT) {
+            discountPayment = GIFT_PAYMENT;
         }
         totalDiscount += discountPayment;
         discountPayments.add(discountPayment);
@@ -84,26 +98,25 @@ public class DiscountCalculator {
 
     public void eventBadgeDiscount() {
         discountName.add("특별 할인");
-        int badgeDiscount = 0;
+        int badgeDiscount = ZERO_COUNT;
         badgeName = "없음";
 
-        if (totalDiscount >= 20000) {
-            badgeName = "산타";
+        if (totalDiscount >= FIRST_BADGE_POINT) {
+            badgeName = Description.BADGE_1ST.getMessage();
         }
 
-        if (totalDiscount >= 10000 && badgeName.equals("없음")) {
-            badgeName = "트리";
+        if (totalDiscount >= SECOND_BADGE_POINT && badgeName.equals("없음")) {
+            badgeName = Description.BADGE_2ND.getMessage();
         }
 
-        if (totalDiscount >= 5000 && badgeName.equals("없음")) {
-            badgeName = "별";
+        if (totalDiscount >= THIRD_BADGE_POINT && badgeName.equals("없음")) {
+            badgeName = Description.BADGE_3RD.getMessage();
         }
 
         if (!badgeName.equals("없음")) {
-            badgeDiscount = 1000;
+            badgeDiscount = BADGE_DISCOUNT;
             totalDiscount += badgeDiscount;
         }
-
         discountPayments.add(badgeDiscount);
     }
 
