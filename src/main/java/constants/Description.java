@@ -8,9 +8,6 @@ public enum Description {
     ORDER_MENU_DETAIL("%s %d개\n"),
     DISCOUNT_DETAIL("%s: %d원\n"),
     GIFT_DETAIL("샴페인 %d개\n\n"),
-    MAIN_MENU("티본스테이크, 바비큐립, 해산물파스타, 크리스마스파스타"),
-    DESSERT("초코케이크, 아이스크림"),
-    DRINK("제로콜라, 레드와인, 샴페인"),
     ERROR_DATE("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."),
     ERROR_NO_MENU("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."),
     ERROR_MENU_VALUE("[ERROR] 유효하지 않은 값 입니다. 다시 입력해 주세요."),
@@ -27,7 +24,7 @@ public enum Description {
 
     Description(String message) {
         this.message = message;
-    } //enum 타입에서 string 타입으로 변환
+    }
 
     public String getMessage() {
         return message;
