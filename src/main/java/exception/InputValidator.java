@@ -7,6 +7,10 @@ import java.util.List;
 public class InputValidator {
     private static final int DATE_MAX = 31;
     private static final int DATE_MIN = 1;
+    private static final int DRINK_FULL = 3;
+    private static final int RESET = 0;
+    private static final int MENU_MAX = 20;
+    private static final List<String> DRINK = List.of("제로콜라", "레드와인", "샴페인");
 
     public void dateValidate(int date) {
         if (date > DATE_MAX || date < DATE_MIN) {
@@ -23,7 +27,6 @@ public class InputValidator {
         checkMenuMax(menuQuantity);
     }
 
-
     private void checkDuplicateMenu(List<String> menuName) {
         HashSet<String> set = new HashSet<>(menuName);
         try {
@@ -36,9 +39,8 @@ public class InputValidator {
     }
 
     private void checkOnlyDrinkMenu(List<String> menuName) {
-        List<String> drink = List.of("제로콜라", "레드와인", "샴페인");
         try {
-            if (menuName.size() <= 3 && drink.containsAll(menuName)) {
+            if (menuName.size() <= DRINK_FULL && new HashSet<>(DRINK).containsAll(menuName)) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
@@ -47,11 +49,11 @@ public class InputValidator {
     }
 
     private void checkMenuMax(List<Integer> menuQuantity) {
-        int quantity = 0;
+        int quantity = RESET;
         for (Integer integer : menuQuantity) {
             quantity += integer;
         }
-        if (quantity > 20) {
+        if (quantity > MENU_MAX) {
             throw new IllegalArgumentException(Description.ERROR_MENU_FULL.getMessage());
         }
     }
