@@ -56,11 +56,21 @@ class DiscountCalculatorTest {
         validate = validateList.get(2);
         //then
         assertThat(validate).isEqualTo(25000);
-
     }
 
     @Test
     void 배지_정상출력_테스트() {
-
+        //given
+        int date = 21;
+        int gift = 0;
+        List<String> menuName = List.of("초코케이크", "타파스");
+        List<Integer> menuQuantity = List.of(8, 1);
+        //when
+        DiscountCalculator discountCalculator = new DiscountCalculator(date, gift, menuName, menuQuantity);
+        List<Integer> validateList = discountCalculator.getDiscountPayments();
+        String validate = discountCalculator.getBadgeName();
+        String expectedValue = "트리";
+        //then
+        assertThat(validate).isEqualTo(expectedValue);
     }
 }
