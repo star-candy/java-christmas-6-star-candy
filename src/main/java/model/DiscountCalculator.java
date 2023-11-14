@@ -40,26 +40,30 @@ public class DiscountCalculator {
         discountPayments.add(dDayStart);
     }
 
-    public void weekDayEndValidate() {//int return 전에 totalDiscount에 값 추가하기
+    public void weekDayEndValidate() {
         final List<Integer> weekEnd = List.of(1, 2, 8, 9, 15, 16, 22, 23, 29, 30);
         if (weekEnd.contains(reservedDate)) {
             discountName.add("주말 할인");
             weekDiscount(true);
         }
+        if (!weekEnd.contains(reservedDate)) {
         discountName.add("평일 할인");
         weekDiscount(false);
+        }
     }
 
     private void weekDiscount(boolean weekend) {
-        final List<String> discountMenu;
+        List<String> discountMenu = null;
         if (weekend) {
             discountMenu = Arrays.asList("티본스테이크", "바비큐립", "해산물파스타", "크리스마스파스타");
-        } else {
+        }
+        if (!weekend) {
             discountMenu = Arrays.asList("초코케이크", "아이스크림");
         }
 
+        List<String> finalDiscountMenu = discountMenu;
         int discountPayment = menuName.stream()
-                .filter(currentMenu -> discountMenu.stream().anyMatch(currentMenu::contains))
+                .filter(currentMenu -> finalDiscountMenu.stream().anyMatch(currentMenu::contains))
                 .mapToInt(menuName::indexOf)
                 .mapToObj(index -> menuQuantity.get(index) * 2023)
                 .reduce(0, Integer::sum);
