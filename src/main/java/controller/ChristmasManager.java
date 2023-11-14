@@ -1,6 +1,7 @@
 package controller;
 
 import constants.Description;
+import java.util.List;
 import model.DiscountCalculator;
 import model.GiftRewardDeterminer;
 import model.InputDateTransformer;
@@ -9,9 +10,8 @@ import model.PreDiscountPaymentCalculator;
 import view.InputView;
 import view.OutputView;
 
-import java.util.List;
-
 public class ChristmasManager {
+    private static final int DISCOUNT_THRESHOLD = 10000;
     private final OutputView outputView;
     private final InputView inputView;
     private int inputDate;
@@ -19,11 +19,8 @@ public class ChristmasManager {
     private List<Integer> menuQuantity;
     private int preDiscountPayment;
     private int giftReward;
-
     private int totalDiscount;
     private String badgeName;
-
-    private static final int DISCOUNT_THRESHOLD = 10000;
 
     public ChristmasManager(OutputView outputView, InputView inputView) {
         this.outputView = outputView;
@@ -66,7 +63,8 @@ public class ChristmasManager {
     }
 
     private void calculatePreDiscountPayment() {
-        PreDiscountPaymentCalculator preDiscountPaymentCalculator = new PreDiscountPaymentCalculator(menuName, menuQuantity);
+        PreDiscountPaymentCalculator preDiscountPaymentCalculator = new PreDiscountPaymentCalculator(menuName,
+                menuQuantity);
         preDiscountPayment = preDiscountPaymentCalculator.preDiscountPaymentCalculate();
         outputView.preDiscountPayment(preDiscountPayment);
     }
