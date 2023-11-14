@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputMenuTransformer {
+    private final static int NAME_QUANTITY_PART = 2;
+    private final static int FIRST_INDEX = 0;
+    private final static int SECOND_INDEX = 1;
+    private final static int ZERO_COUNT = 0;
     private final String inputMenu;
     private final List<String> menuName = new ArrayList<>();
     private final List<Integer> menuQuantity = new ArrayList<>();
@@ -21,14 +25,14 @@ public class InputMenuTransformer {
             String[] menuBundles = inputMenu.split(",");
             for (String menuBundle : menuBundles) {
                 String[] menuParts = menuBundle.split("-");
-                if (menuParts.length == 2) {
-                    menuName.add(menuParts[0]);
-                    menuQuantity.add(Integer.parseInt(menuParts[1]));
+                if (menuParts.length == NAME_QUANTITY_PART) {
+                    menuName.add(menuParts[FIRST_INDEX]);
+                    menuQuantity.add(Integer.parseInt(menuParts[SECOND_INDEX]));
                 }
             }
         } catch (IllegalArgumentException e) {
             System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-            menuQuantity.add(0);
+            menuQuantity.add(ZERO_COUNT);
         }
     }
 
