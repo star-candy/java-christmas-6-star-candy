@@ -5,6 +5,8 @@ import constants.Menu;
 import java.util.List;
 
 public class PreDiscountPaymentCalculator {
+    private final static int RESET = 0;
+
     private final List<String> menuName;
     private final List<Integer> menuQuantity;
 
@@ -15,10 +17,10 @@ public class PreDiscountPaymentCalculator {
     }
 
     public int preDiscountPaymentCalculate() {
-        int totalPayment = 0;
+        int totalPayment = RESET;
 
         try {
-            for (int index = 0; index < menuName.size(); index++) {
+            for (int index = RESET; index < menuName.size(); index++) {
                 String currentMenuName = menuName.get(index);
                 int currentMenuQuantity = menuQuantity.get(index);
 
