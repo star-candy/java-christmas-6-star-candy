@@ -7,7 +7,7 @@ public enum Description {
     ORDER_END("12월 3일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n"),
     ORDER_MENU_DETAIL("%s %d개\n"),
     DISCOUNT_DETAIL("%s: %d원\n"),
-    DISCOUNT_DETAIL_SPACING("%d원\n\n"),
+    PAYMENT("%d원\n\n"),
     GIFT_DETAIL("샴페인 %d개\n\n"),
     ERROR_DATE("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."),
     ERROR_NO_MENU("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."),
