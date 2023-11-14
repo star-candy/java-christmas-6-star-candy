@@ -35,7 +35,7 @@ public class InputMenuTransformer {
                 }
             }
         } catch (IllegalArgumentException e) {
-            System.out.println(Description.ERROR_NO_MENU);
+            System.out.println(Description.ERROR_NO_MENU.getMessage());
             menuQuantity.add(ZERO_COUNT);
         }
     }

@@ -24,7 +24,7 @@ public class OutputView {
 
     public void preDiscountPayment(int payment) {
         System.out.println("<할인 전 총주문 금액>");
-        System.out.println(payment + "원\n");
+        System.out.printf(Description.DISCOUNT_DETAIL_SPACING.getMessage(), payment);
     }
 
     public void giftReward(int giftCount) {
@@ -47,7 +47,7 @@ public class OutputView {
 
     public void totalDiscountPayment(int totalDiscountPayment) {
         System.out.println("<총혜택 금액>");
-        System.out.println(totalDiscountPayment + "원\n");
+        System.out.printf(Description.DISCOUNT_DETAIL_SPACING.getMessage(), totalDiscountPayment);
     }
 
     public void totalPayment(int preDiscountPayment, int totalDiscountPayment, int giftCount) {
@@ -56,7 +56,7 @@ public class OutputView {
         if (giftCount == 1) {
             totalPayment -= 25000;
         }
-        System.out.println(totalPayment + "원\n");
+        System.out.printf(Description.DISCOUNT_DETAIL_SPACING.getMessage(), totalPayment);
     }
 
     public void eventBadge(String eventBadge) {
