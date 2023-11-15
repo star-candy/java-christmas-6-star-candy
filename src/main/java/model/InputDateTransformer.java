@@ -1,6 +1,5 @@
 package model;
 
-import constants.Description;
 import exception.InputValidator;
 
 public class InputDateTransformer {
@@ -11,7 +10,7 @@ public class InputDateTransformer {
         this.inputDate = inputDate;
     }
 
-    public int inputDateTransform() { //controller 사용시 Description.ERROR_DATE.getMessage()에 대한 try-catch 사용하기
+    public int inputDateTransform() {
         final int validateDate = Integer.parseInt(inputDate);
         inputValidator.dateValidate(validateDate);
         return validateDate;

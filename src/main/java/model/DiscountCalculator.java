@@ -18,6 +18,8 @@ public class DiscountCalculator {
     private final static int SECOND_BADGE_POINT = 10000;
     private final static int FIRST_BADGE_POINT = 20000;
     private final static Integer[] WEEKEND = {1, 2, 8, 9, 15, 16, 22, 23, 29, 30};
+    private final static String[] MAIN_MENU = {"티본스테이크", "바비큐립", "해산물파스타", "크리스마스파스타"};
+    private final static String[] DESSERT = {"초코케이크", "아이스크림"};
 
     private final List<String> discountName = new ArrayList<>();
     private final List<Integer> discountPayments = new ArrayList<>();
@@ -69,10 +71,10 @@ public class DiscountCalculator {
     private void weekDiscount(boolean weekend) {
         List<String> discountMenu = null;
         if (weekend) {
-            discountMenu = Arrays.asList("티본스테이크", "바비큐립", "해산물파스타", "크리스마스파스타");
+            discountMenu = Arrays.asList(MAIN_MENU);
         }
         if (!weekend) {
-            discountMenu = Arrays.asList("초코케이크", "아이스크림");
+            discountMenu = Arrays.asList(DESSERT);
         }
 
         List<String> finalDiscountMenu = discountMenu;

@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-
 class InputValidatorTest {
     @Test
     void 날짜_예외처리_작동_테스트() {

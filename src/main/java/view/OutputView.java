@@ -1,7 +1,6 @@
 package view;
 
 import constants.Description;
-
 import java.util.List;
 
 public class OutputView {
